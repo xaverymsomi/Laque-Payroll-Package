@@ -1,0 +1,29 @@
+{
+    "name": "vicent/laque-payroll",
+    "description": "A PHP package for Tanzanian payroll calculations, including PAYE tax, NSSF, SDL, WCF, and other statutory contributions",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LaquePayroll Developers",
+            "email": "info@laquepayroll.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laque\\Payroll\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
