@@ -1,0 +1,30 @@
+name: Publish PHP Package
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Run tests
+        run: composer test
+
+      - name: Publish to GitHub Packages
+        run: composer publish
+        env:
+          COMPOSER_AUTH: ${{ secrets.GITHUB_TOKEN }}
